@@ -24,6 +24,15 @@ namespace Library
                 MySqlCommand cmd = new MySqlCommand(s0,conn);
                 cmd.ExecuteNonQuery();
                 // Perform database operations
+                s0 = "Use public_library";
+                cmd = new MySqlCommand(s0, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                // never enters because there's nothing to read
+                while(reader.Read())
+                {
+                    Console.WriteLine(reader.ToString());
+                    Console.WriteLine("Nothing Here");
+                }
 
                 Console.WriteLine("Disconnecting MySQL...");
                 conn.Close();
