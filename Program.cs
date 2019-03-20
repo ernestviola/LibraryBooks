@@ -20,6 +20,9 @@ namespace Library
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
 
+                string s0 = "CREATE DATABASE IF NOT EXISTS `public_library`";
+                MySqlCommand cmd = new MySqlCommand(s0,conn);
+                cmd.ExecuteNonQuery();
                 // Perform database operations
 
                 Console.WriteLine("Disconnecting MySQL...");
