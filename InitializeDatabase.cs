@@ -13,15 +13,25 @@ namespace Library
             MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
+                Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
+
                 string s0 = "CREATE DATABASE IF NOT EXIST `public_library`";
-                MySqlCommand cmd = new MySqlCommand(s0);
+                MySqlCommand cmd = new MySqlCommand(s0,conn);
                 cmd.BeginExecuteNonQuery();
+                conn.Close();
+
+
             }
             catch(Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e.ToString());
             }
+
+            Console.WriteLine("Disconnecting MySQL...");
+            conn.Close();
+            Console.WriteLine("Done.");
+
 
         }
     }

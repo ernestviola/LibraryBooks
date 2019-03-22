@@ -10,39 +10,8 @@ namespace Library
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new InitializeDatabase();
 
-
-            string connStr = "server=localhost;user=root;port=3306;password=";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
-
-                string s0 = "CREATE DATABASE IF NOT EXISTS `public_library`";
-                MySqlCommand cmd = new MySqlCommand(s0,conn);
-                cmd.ExecuteNonQuery();
-                // Perform database operations
-                s0 = "Use public_library";
-                cmd = new MySqlCommand(s0, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                // never enters because there's nothing to read
-                while(reader.Read())
-                {
-                    Console.WriteLine(reader.ToString());
-                    Console.WriteLine("Nothing Here");
-                }
-
-                Console.WriteLine("Disconnecting MySQL...");
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            conn.Close();
-            Console.WriteLine("Done.");
         }
     }
 }
