@@ -7,12 +7,8 @@ namespace Library
 {
     public class InitializeTable
     {
-        public InitializeTable()
+        public InitializeTable(MySqlConnection conn)
         {
-            string connStr = "database=library_books;server=localhost;" +
-            	"user=root;port=3306;password=";
-            MySqlConnection conn = new MySqlConnection(connStr);
-
             try
             {
                 string s0 = "CREATE TABLE IF NOT EXIST books(" +

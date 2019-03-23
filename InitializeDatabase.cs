@@ -22,7 +22,7 @@ namespace Library
                 string s0 = string.Format("CREATE DATABASE IF NOT EXIST `{0}`",database);
                 MySqlCommand cmd = new MySqlCommand(s0,conn);
                 cmd.BeginExecuteNonQuery();
-                conn.Close();
+                conn.ChangeDatabase(database);
 
 
             }
