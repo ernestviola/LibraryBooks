@@ -11,7 +11,6 @@ namespace Library
         public static void Main(string[] args)
         {
             new InitializeDatabase();
-
         }
     }
 }

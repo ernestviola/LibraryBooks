@@ -52,6 +52,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InitializeDatabase.cs" />
+    <Compile Include="InitializeTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
