@@ -10,7 +10,13 @@ namespace Library
     {
         public static void Main(string[] args)
         {
-            new InitializeDatabase();
+            string database = "library_books";
+            MySqlConnection conn = new InitializeDatabase(database).GetConnection();
+            conn.ChangeDatabase(database);
+            Console.WriteLine("Disconnecting Database & Mysql...{0}",database);
+            conn.Close();
+            Console.WriteLine("Done.");
+
         }
     }
 }

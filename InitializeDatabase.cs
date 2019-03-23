@@ -7,7 +7,10 @@ namespace Library
 {
     public class InitializeDatabase
     {
-        public InitializeDatabase()
+        private MySqlConnection conn = null;
+
+
+        public InitializeDatabase(string database)
         {
             string connStr = "server=localhost;user=root;port=3306;password=";
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -15,8 +18,8 @@ namespace Library
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-
-                string s0 = "CREATE DATABASE IF NOT EXIST `public_library`";
+                
+                string s0 = string.Format("CREATE DATABASE IF NOT EXIST `{0}`",database);
                 MySqlCommand cmd = new MySqlCommand(s0,conn);
                 cmd.BeginExecuteNonQuery();
                 conn.Close();
@@ -28,11 +31,15 @@ namespace Library
                 Console.WriteLine(e.ToString());
             }
 
-            Console.WriteLine("Disconnecting MySQL...");
-            conn.Close();
-            Console.WriteLine("Done.");
-
 
         }
+
+
+        public MySqlConnection GetConnection()
+        {
+            return conn;
+        }
+
+
     }
 }
