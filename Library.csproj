@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InitializeDatabase.cs" />
     <Compile Include="InitializeTable.cs" />
+    <Compile Include="Hello.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
